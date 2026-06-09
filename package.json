@@ -9,6 +9,19 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.9.0"
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^5.9.0",
+    "tailwindcss": "^4.3.0"
+  },
+  "devDependencies": {
+    "cz-customizable": "^7.5.4"
+  },
+  "config": {
+    "cz-customizable": {
+      "config": ".cz-config.cjs"
+    },
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
   }
 }

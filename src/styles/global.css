@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  /* Backgrounds */
+  --color-bg-base: #000000;
+  --color-bg-surface: #0d0d0d;
+  --color-bg-elevated: #141414;
+  --color-bg-overlay: #1f1f1f;
+
+  /* Crimson Accent */
+  --color-crimson-deep: #6b0000;
+  --color-crimson: #8b0000;
+  --color-crimson-mid: #a81515;
+  --color-crimson-vivid: #c41e1e;
+  --color-crimson-bright: #e02020;
+
+  /* Neutral Text */
+  --color-white: #ffffff;
+  --color-off-white: #f1f0ed;
+  --color-muted-strong: #aaaaaa;
+  --color-muted: #777777;
+  --color-muted-subtle: #444444;
+  --color-border: #2a2a2a;
+  --color-border-subtle: #1a1a1a;
+
+  /* Text Palette Aliases */
+  --color-text-primary: var(--color-off-white);
+  --color-text-secondary: var(--color-muted-strong);
+  --color-text-muted: var(--color-muted);
+  --color-text-accent: var(--color-crimson-vivid);
+
+  /* Font-size */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+
+  /* Line heights */
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  /* Letter spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.08em;
+  --tracking-widest: 0.16em;
+
+  /* --- Transitions --- */
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+
+  /* --- Z-index scale --- */
+  --z-base: 0;
+  --z-above: 10;
+  --z-nav: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+
+  /* --- Breakpoints --- */
+  --breakpoint-mobile: 430px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-laptop: 1280px;
+  --breakpoint-wide: 1536px;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img,
+  video,
+  svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
