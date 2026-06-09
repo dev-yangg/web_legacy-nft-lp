@@ -76,6 +76,10 @@
   --breakpoint-wide: 1536px;
 }
 
+@theme inline {
+  --font-playfair: var(--font-playfair-display);
+}
+
 @layer base {
   body {
     background-color: var(--color-bg-base);
