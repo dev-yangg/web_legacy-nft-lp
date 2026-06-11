@@ -1,0 +1,19 @@
+---
+const mainNavLinks = [
+  { label: "Marketplace", path: "/marketplace" },
+  { label: "Collections", path: "/collections" },
+  { label: "Creators", path: "/creators" },
+  { label: "About", path: "/about" },
+  { label: "Roadmap", path: "/roadmap" },
+];
+---
+
+<nav class="hidden lg:block">
+  <ul class="flex items-center gap-12">
+    {mainNavLinks.map(({ label, path }) => (
+        <li>
+            <a href={path}>{label}</a>
+        </li>
+    ))}
+  </ul>
+</nav>
