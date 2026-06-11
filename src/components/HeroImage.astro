@@ -1,0 +1,24 @@
+---
+import { Image } from "astro:assets";
+import heroDesktop from "../assets/images/hero.webp"
+---
+
+<figure class="w-full h-full pointer-events-none select-none ">
+    <div class="relative w-full h-full grid place-items-end overflow-x-clip pb-24 sm:pb-10 lg:pb-0">
+        <div class="lg:absolute lg:inset-y-0 lg:left-1/2 lg:-translate-x-1/2 w-full">
+            <Image 
+                src={heroDesktop} 
+                alt="" 
+                format="webp" 
+                quality={'high'} 
+                width={heroDesktop.width} 
+                priority 
+                class="w-full h-full object-cover object-top saturate-125 scale-160 sm:scale-125"
+            />
+        </div>
+        <div class="hidden lg:block absolute left-1/2 -translate-x-1/2 outline-3 outline-accent w-fluid-width-xs max-h-6/7 aspect-1/1.5 xl:aspect-1/1.25 -z-10"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(to_top,#0a0a0a_0%,transparent_30%)]"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(to_left,transparent_60%,var(--color-base)_125%)]"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,transparent_60%,var(--color-base)_125%)]"></div>
+    </div>
+</figure>
