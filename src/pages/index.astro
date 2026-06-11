@@ -1,8 +1,15 @@
 ---
+import AppHeader from '../components/AppHeader.astro'
+import HeroSection from '../components/HeroSection.astro'
 import AppLayout from '../layouts/AppLayout.astro'
 import '../styles/global.css'
 ---
 
 <AppLayout>
-	<h1>HELLO ASTRO</h1>
+	<div class="w-app-boundary mx-auto">
+		<AppHeader />
+		<main class="w-app-content-boundary mx-auto">
+			<HeroSection />
+		</main>
+	</div>
 </AppLayout>
