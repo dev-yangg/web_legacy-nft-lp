@@ -1,0 +1,22 @@
+---
+import BrandTitleSvg from "./BrandTitleSvg.astro";
+import Logo from "./Logo.astro";
+import MainNavlinks from "./MainNavlinks.astro";
+---
+
+<header class="flex items-center justify-between py-4 px-5">
+    <a href="/" aria-label="Go to homepage" class="inline-flex items-baseline text-accent-vivid gap-3">
+        <span class="inline-block w-6 lg:w-8 aspect-square" aria-hidden="true">
+            <Logo />
+        </span>
+        <span class="text-primary-text h-5 lg:h-7" aria-hidden="true">
+            <BrandTitleSvg />
+        </span>
+    </a>
+
+    <MainNavlinks />
+
+    <button class="hidden lg:block rounded-md outline-2 outline-accent-deep text-accent-vivid hover:text-accent-bright px-3 py-1.5 shadow-accent hover:shadow-[0px_4px_6px] hover:-translate-y-1 transition-all duration-300 ease-in-out will-change-transform">
+        Connect Wallet
+    </button>
+</header>
