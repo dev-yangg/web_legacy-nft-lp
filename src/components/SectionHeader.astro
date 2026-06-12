@@ -1,0 +1,8 @@
+---
+const { headline } = Astro.props
+---
+
+<header class="flex justify-between items-center">
+    <h4 class="font-semibold capitalize">{headline}</h4>
+    <slot />
+</header>
