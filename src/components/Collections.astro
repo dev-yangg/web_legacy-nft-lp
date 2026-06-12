@@ -1,0 +1,38 @@
+---
+import theAncientsImage from "../assets/images/the-ancients.webp"
+import eternalKingsImage from "../assets/images/eternal-kings.webp"
+import mythicRealmsImage from "../assets/images/mythic-realms.webp"
+import futureRelicsImage from "../assets/images/future-relics.webp"
+import timelessIconsImage from "../assets/images/timeless-icons.webp"
+import { Image } from "astro:assets"
+import SectionHeader from "./SectionHeader.astro"
+
+
+const collections = [
+  { title: "The Ancients",    imagePath: theAncientsImage, value: "1.20 ETH" },
+  { title: "Eternal Kings",   imagePath: eternalKingsImage, value: "0.85 ETH" },
+  { title: "Mythic Realms",   imagePath: mythicRealmsImage, value: "0.65 ETH" },
+  { title: "Future Relics",   imagePath: futureRelicsImage, value: "1.10 ETH" },
+  { title: "Timeless Icons",  imagePath: timelessIconsImage, value: "0.75 ETH" },
+]
+---
+
+
+<section class="flex flex-col page-padded-section overflow-hidden gap-4">
+    <SectionHeader headline="curated collections">
+        <a href="/collections" aria-label="View all collections" class="text-muted text-small">View all</a>
+    </SectionHeader>
+    <ul class="flex flex-nowrap items-stretch gap-6 ">
+        {collections.map((collection) => (
+            <li class="max-lg:flex-none max-lg:w-fluid-width-xs text-nowrap">
+                <figure class=" outlined-element-rounded">
+                    <Image src={collection.imagePath} alt={collection.title} loading={"lazy"} quality="high" class="object-cover object-center w-full h-full"/>
+                    <figcaption class="text-small px-3 py-1.5">
+                        <p class="font-semibold">{collection.title}</p>
+                        <p class="text-muted-strong">{collection.value}</p>
+                    </figcaption>
+                </figure>
+            </li>
+        ))}
+    </ul>
+</section>
