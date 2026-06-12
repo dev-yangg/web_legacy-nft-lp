@@ -1,0 +1,15 @@
+---
+import BrandTitleSvg from "./BrandTitleSvg.astro";
+import Logo from "./Logo.astro";
+
+const { class: className } = Astro.props
+---
+
+<a href="/" aria-label="Go to homepage" class="inline-flex text-accent-vivid outline outline-green-500">
+    <span class="outline inline-block w-6 lg:w-8 aspect-square" aria-hidden="true">
+        <Logo />
+    </span>
+    <span class="inline-block outline text-primary-text h-5 lg:h-7 self-end" aria-hidden="true">
+        <BrandTitleSvg />
+    </span>
+</a>
