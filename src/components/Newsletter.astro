@@ -1,0 +1,45 @@
+<section class="page-padded-section">
+    <article class="flex flex-col lg:flex-row justify-between lg:items-center outlined-element-rounded gap-6 bg-surface inset-shadow-[0_0_12px] inset-shadow-base/25 py-6 px-8">
+        <header class="lg:pr-14">
+            <h4>Join the Legacy</h4>
+            <p class="text-muted-strong">Stay updated on drops, partnerships, and platform updates.</p>
+        </header>
+        <section class="relative">
+            <form action="" class="flex flex-col gap-3 mobile:gap-0 mobile:flex-row max-h-fit">
+                <fieldset class="relative w-full">
+                    <label for="email" class="absolute left-3 -translate-x-2 top-1/2 -translate-y-1/2 text-muted-subtle text-button pointer-events-none transition-all duration-300 ease-out bg-transparent px-2 text-nowrap will-change-transform">Enter your email</label>
+                    <input type="email" name="email" id="email" placeholder="" class="h-full border mobile:border-r-0 border-muted rounded-md mobile:rounded-tr-none mobile:rounded-br-none pl-3 pr-2 py-2 w-full">
+                    
+                </fieldset>
+                <button class="text-regular border mobile:border-l-0 border-accent rounded-md mobile:rounded-tl-none mobile:rounded-bl-none bg-accent px-6 py-2">Subscribe</button>
+            </form>
+        </section>
+    </article>
+</section>
+
+
+<style>
+    fieldset {
+        
+        :is(&:has(input:focus), &:has(input:not(:placeholder-shown))) {
+            
+            label {
+                background-color: var(--color-surface);
+                color: var(--color-muted-strong);
+                font-size: var(--text-tiny);
+                top: 0;
+                transform: translateX(0.25rem);
+            }
+        }
+    }
+
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus {
+        -webkit-box-shadow: 0 0 0px 1000px var(--color-surface) inset;
+        -webkit-text-fill-color: var(--color-primary-text);
+    }
+        
+</style>
+
