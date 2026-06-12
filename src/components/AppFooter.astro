@@ -1,0 +1,80 @@
+---
+import { Image } from "astro:assets";
+import AppAnchor from "./AppAnchor.astro";
+import footerImage from "../assets/images/leaning-angel-transparent.webp"
+import BrandTitleSvg from "./BrandTitleSvg.astro";
+
+const headerTaglines = [
+    'Preserving culture.',
+    'Empowering creators.',
+    'Building a Legacy.'
+]
+
+const footerLinks = [
+    {
+        label: "Marketplace",
+        links: [
+            { title: "All NFTs", path: "/nfts" },
+            { title: "Collections", path: "/collections" },
+            { title: "Top Creators", path: "/creators" },
+            { title: "Latest Drops", path: "/drops" }
+        ]
+    },
+    {
+        label: "Company",
+        links: [
+            { title: "About Us", path: "/about" },
+            { title: "Careers", path: "/careers" },
+            { title: "Blog", path: "/blog" },
+            { title: "Press", path: "/press" }
+        ]
+    },
+    {
+        label: "Support",
+        links: [
+            { title: "Help Center", path: "/help" },
+            { title: "Terms of Service", path: "/terms" },
+            { title: "Privacy Policy", path: "/privacy" },
+            { title: "Contact", path: "/contact" }
+        ]
+    }
+]
+---
+
+<footer class="flex flex-col gap-4 w-app-content-boundary mx-auto page-padded-section ">
+    <section class="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-0">
+        <header class="lg:col-start-1 lg:col-end-2 flex flex-col gap-4">
+            <span class="hidden lg:block">
+                <AppAnchor />
+            </span>
+            <div class="block lg:hidden">
+                <BrandTitleSvg />
+            </div>
+            <p class="hidden mobile:flex flex-col mobile:flex-row justify-between items-center mobile:items-start gap-0 mobile:gap-4 lg:gap-0 lg:flex-col">
+                {headerTaglines.map((tagline) => (
+                    <small class="inline-block text-accent-mid max-sm:text-tiny max-sm:leading-none lg:text-muted-strong">{tagline}</small>
+                ))}
+            </p>
+        </header>
+        <section class="lg:col-start-2 lg:col-end-4 flex flex-col sm:flex-row justify-between lg:justify-around">
+            {footerLinks.map((linkCateg) => (
+                <div class="flex flex-col gap-y-3.5 text-small ">
+                    <h5 class="font-semibold">{linkCateg.label}</h5>
+                    <ul class="hidden sm:flex flex-col gap-y-1">
+                    {linkCateg.links.map((link) => (
+                        <li>
+                            <a class="inline-block text-muted-strong" href={link.path}>{link.title}</a>
+                        </li>
+                    ))}
+                    </ul>
+                </div>
+            ))}
+        </section>
+        <figure class="hidden lg:block p-2">
+            <Image src={footerImage} alt={""} quality={'high'} loading={"lazy"} class="w-full h-full contrast-110 brightness-80"/>
+        </figure>
+    </section>
+    <small class="inline-block self-center text-muted-strong">
+        © {new Date().getFullYear()} Legacy. All rights reserved.
+    </small>
+</footer>
