@@ -1,22 +1,20 @@
 ---
+import AppAnchor from "./AppAnchor.astro";
 import BrandTitleSvg from "./BrandTitleSvg.astro";
 import Logo from "./Logo.astro";
 import MainNavlinks from "./MainNavlinks.astro";
 ---
 
-<header class="flex items-center lg:justify-between py-4 px-5">
-    <a href="/" aria-label="Go to homepage" class=" justify-self-start inline-flex  text-accent-vivid outline outline-green-500">
-        <span class="outline inline-block w-6 lg:w-8 aspect-square mr-3" aria-hidden="true">
-            <Logo />
-        </span>
-        <span class="outline text-primary-text h-5 lg:h-7 self-end" aria-hidden="true">
-            <BrandTitleSvg />
-        </span>
-    </a>
+<header class="flex items-center justify-between py-4 px-5">
+    <AppAnchor />
 
     <MainNavlinks />
 
-    <button class="hidden lg:block rounded-md outline-2 outline-accent-deep text-accent-vivid hover:text-accent-bright px-3 py-1.5 shadow-accent hover:shadow-[0px_4px_6px] hover:-translate-y-1 transition-all duration-300 ease-in-out will-change-transform">
+    <button class="hidden lg:block rounded-md outline-2 outline-accent-deep text-accent-vivid hover:text-accent-bright px-3 py-1.5 shadow-accent levitate">
         Connect Wallet
+    </button>
+
+    <button class="block lg:hidden w-6 aspect-square outline rounded-md">
+
     </button>
 </header>
