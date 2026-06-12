@@ -12,13 +12,15 @@ import heroDesktop from "../assets/images/hero.webp"
                 format="webp" 
                 quality={'max'} 
                 width={heroDesktop.width} 
-                priority 
+                loading={"eager"} fetchpriority={"high"}
                 class="w-full h-full object-cover object-top saturate-125 scale-160 sm:scale-125"
             />
         </div>
         <div class="hidden lg:block absolute left-1/2 -translate-x-1/2 outline-3 outline-accent w-fluid-width-xs max-h-6/7 aspect-1/1.5 xl:aspect-1/1.25 -z-10"></div>
-        <div class="absolute inset-0 bg-[linear-gradient(to_top,#0a0a0a_0%,transparent_30%)]"></div>
-        <div class="absolute inset-0 bg-[linear-gradient(to_left,transparent_60%,var(--color-base)_125%)]"></div>
-        <div class="absolute inset-0 bg-[linear-gradient(to_right,transparent_60%,var(--color-base)_125%)]"></div>
+        <div class="absolute inset-0  -bg-linear-360 from-0% from-surface/85 to-30% to-transparent"></div>
+
+        <div class="absolute inset-0 bg-linear-270 from-60% from-transparent to-100% to-base"></div>
+        <div class="absolute inset-0 bg-linear-90 from-60% from-transparent to-100% to-base"></div>
+
     </div>
 </figure>
