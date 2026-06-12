@@ -94,8 +94,8 @@
   --spacing-app-boundary-900: min(1700px, 90%);
   --spacing-app-boundary-800: min(1700px, 80%);
   --spacing-app-content-boundary: min(1500px, 100%);
-  --spacing-fluid-width-tiny: min(180px, 100%);
-  --spacing-fluid-width-tiny-padded: min(180px, 100% - var(--pad));
+  --spacing-fluid-width-tiny: min(120px, 100%);
+  --spacing-fluid-width-tiny-padded: min(120px, 100% - var(--pad));
   --spacing-fluid-width-xxs: min(280px, 100%);
   --spacing-fluid-width-xxs-padded: min(280px, 100% - var(--pad));
   --spacing-fluid-width-xs: min(340px, 100%);
@@ -124,6 +124,7 @@
   --text-regular: clamp(var(--text-base), 1.25vw + 1rem, var(--text-lg));
   --text-button: clamp(var(--text-sm), 1.25vw + 1rem, var(--text-base));
   --text-small: clamp(var(--text-xs), 1.25vw + 0.5rem, var(--text-sm));
+  --text-tiny: clamp(var(--text-xxs), 1vw + 0.5rem, var(--text-xs));
 }
 
 @layer base {
@@ -148,6 +149,9 @@
   h3 {
     font-size: var(--text-title);
   }
+  h4 {
+    font-size: var(--text-subtitle);
+  }
 
   small {
     font-size: var(--text-small);
@@ -170,6 +174,10 @@
     cursor: pointer;
   }
 
+  input:focus {
+    outline: none;
+  }
+
   dt {
     font-weight: var(--font-weight-semibold);
   }
@@ -180,7 +188,7 @@
 }
 
 @utility page-padded-section {
-  @apply p-6;
+  @apply py-6 px-4 lg:px-12;
 }
 
 @utility outlined-element {
@@ -188,4 +196,8 @@
 }
 @utility outlined-element-rounded {
   @apply outlined-element rounded-md;
+}
+
+@utility levitate {
+  @apply hover:shadow-[0px_4px_6px] hover:-translate-y-0.75 transition-all duration-300 ease-in-out will-change-transform;
 }
