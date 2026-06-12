@@ -1,0 +1,37 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+
+
+const benefits = [
+  {
+    label: "Timeless Assets",
+    description: "Curated NFTs designed to hold value for generations.",
+  },
+  {
+    label: "Secure & Transparent",
+    description: "Built on Ethereum with verified smart contracts and full transparency.",
+  },
+  {
+    label: "Creator Royalties",
+    description: "Supporting creators with fair royalties on every secondary sale.",
+  },
+  {
+    label: "Built for Generations",
+    description: "A legacy platform for collectors, creators, and communities to grow.",
+  },
+]
+
+---
+
+<section class="page-padded-section flex flex-col gap-6">
+    <SectionHeader headline="why legacy?" />
+    <dl class="grid grid-cols-1 px-4 sm:grid-cols-2 xl:grid-cols-4 gap-y-4 gap-x-12 xl:gap-4">
+        {benefits.map((benefit, i) => (
+            <div class={`${i+1 !== benefits.length ? "after:sm:hidden xl:after:block after:absolute after:bottom-0 after:xl:top-1/2 after:xl:-translate-y-1/2 after:max-sm:left-0 after:right-0 after:bg-muted-subtle after:xl:w-px after:h-px after:xl:h-[80%]" : ""} relative flex flex-col gap-2 text-balance sm:text-pretty pt-4 pb-7 xl:p-4 sm:max-w-100 xl:max-w-none`}>
+                <dt class="text-accent">{benefit.label}</dt>
+                <dd class="text-muted-strong">{benefit.description}</dd>
+            </div>
+        ))}
+    </dl>
+</section>
+
