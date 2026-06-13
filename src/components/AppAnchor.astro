@@ -5,11 +5,11 @@ import Logo from "./Logo.astro";
 const { class: className } = Astro.props
 ---
 
-<a href="/" aria-label="Go to homepage" class="inline-flex text-accent-vivid outline outline-green-500">
-    <span class="outline inline-block w-6 lg:w-8 aspect-square" aria-hidden="true">
+<a href="/" aria-label="Go to homepage" class="inline-flex gap-[1ch] items-baseline ">
+    <span class="inline-block w-9 aspect-square text-accent-mid">
         <Logo />
     </span>
-    <span class="inline-block outline text-primary-text h-5 lg:h-7 self-end" aria-hidden="true">
+    <span class="inline-block w-36 aspect-auto">
         <BrandTitleSvg />
     </span>
 </a>
