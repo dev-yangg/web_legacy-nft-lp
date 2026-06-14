@@ -24,8 +24,8 @@ const collections = [
     </SectionHeader>
     <ul class="flex flex-nowrap items-stretch gap-6 ">
         {collections.map((collection) => (
-            <li class="max-lg:flex-none max-lg:w-fluid-width-xs text-nowrap">
-                <figure class=" outlined-element-rounded">
+            <li class="max-lg:flex-none max-sm:w-[min(186px,100%)] max-lg:w-fluid-width-xs text-nowrap">
+                <figure class=" outlined-element-rounded aspect-3/4">
                     <Image src={collection.imagePath} alt={collection.title} loading={"lazy"} quality="high" class="object-cover object-center w-full h-full"/>
                     <figcaption class="text-small px-3 py-1.5">
                         <p class="font-semibold">{collection.title}</p>
