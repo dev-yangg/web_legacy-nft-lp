@@ -1,5 +1,9 @@
 ---
 import { Font } from "astro:assets";
+import AppFooter from "../components/AppFooter.astro";
+import AppHeader from "../components/AppHeader.astro";
+import '../styles/global.css'
+
 ---
 
 <html lang="en">
@@ -12,6 +16,12 @@ import { Font } from "astro:assets";
         <Font cssVariable="--font-playfair-display" preload/>
 	</head>
 	<body>
-		<slot />
+		<div class="w-app-boundary mx-auto">
+			<AppHeader />
+				<main class="w-app-content-boundary mx-auto">
+					<slot />
+				</main>
+			<AppFooter />
+		</div>
 	</body>
 </html>
