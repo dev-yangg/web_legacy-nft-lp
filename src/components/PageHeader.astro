@@ -1,0 +1,13 @@
+---
+const { currentPage, headline, subheadline, description, className } = Astro.props
+---
+
+
+<article class={`z-50 py-4 w-fluid-width-md ${className ?? " "}`}>
+    <small class="text-accent uppercase">{currentPage}</small>
+    <hgroup class="flex flex-col leading-none font-playfair">
+        <h3 class="sm:text-subheadline">{headline}</h3>
+        <h3 class="text-accent sm:text-subheadline">{subheadline}</h3>
+    </hgroup>
+    <p class="mt-4 text-small text-muted-strong text-balance">{description}</p>
+</article>
