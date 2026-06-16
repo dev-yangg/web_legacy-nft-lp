@@ -1,18 +1,21 @@
 ---
 const mainNavLinks = [
-  { label: "Marketplace", path: "/marketplace" },
   { label: "Collections", path: "/collections" },
   { label: "Creators", path: "/creators" },
   { label: "About", path: "/about" },
-  { label: "Roadmap", path: "/roadmap" },
+  { label: "Principles", path: "/principles" },
 ];
+
+const pathname = Astro.url.pathname
+const isCurrentRoute = (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href)
+
 ---
 
 <nav class="hidden lg:block">
   <ul class="flex items-center gap-12">
     {mainNavLinks.map(({ label, path }) => (
         <li>
-            <a href={path}>{label}</a>
+            <a href={path} class={`${isCurrentRoute(path) ? "text-accent-mid": " "}`}>{label}</a>
         </li>
     ))}
   </ul>
