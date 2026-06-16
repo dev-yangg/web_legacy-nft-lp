@@ -74,16 +74,16 @@
   --duration-slow: 400ms;
 
   /* --- Z-index scale --- */
-  --z-base: 0;
-  --z-above: 10;
-  --z-nav: 100;
-  --z-overlay: 200;
-  --z-modal: 300;
-  --z-toast: 400;
+  --z-index-base: 0;
+  --z-index-above: 10;
+  --z-index-nav: 100;
+  --z-index-overlay: 200;
+  --z-index-modal: 300;
+  --z-index-toast: 400;
 
   /* --- Breakpoints --- */
   --breakpoint-xs: 21.25rem;
-  --breakpoint-mobile: 430px;
+  --breakpoint-mobile: 470px;
   --breakpoint-tablet: 768px;
   --breakpoint-laptop: 1280px;
   --breakpoint-wide: 1536px;
@@ -178,6 +178,10 @@
     outline: none;
   }
 
+  input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+  }
+
   dt {
     font-weight: var(--font-weight-semibold);
   }
@@ -187,6 +191,9 @@
   }
 }
 
+@utility page-padded-section-x {
+  @apply px-4 lg:px-12;
+}
 @utility page-padded-section {
   @apply py-6 px-4 lg:px-12;
 }
