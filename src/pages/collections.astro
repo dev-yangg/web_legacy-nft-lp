@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+import PageHeader from "../components/PageHeader.astro";
+import AppLayout from "../layouts/AppLayout.astro";
+import collectionsHero from "../assets/images/collections-hero.webp"
+import CollectionsGallery from "../components/CollectionsGallery.astro";
+import CollectionsHeaderActions from "../components/CollectionsHeaderActions.astro";
+---
+
+<AppLayout>
+    <section class="page-padded-section-x relative">
+        <header class="grid grid-cols-2 xl:grid-cols-3 items-center relative ">
+            <div class="absolute inset-0 bg-base/75 max-md:block hidden"></div>
+            <PageHeader className=" col-start-1 col-end-3 row-start-1" currentPage="Collections" headline="Timeless Collections." subheadline="Infinite Legacy." description="Handpicked NFT collections from visionary artists and builders. Own a piece of history, forever.">
+            </PageHeader>
+            <div class="md:overflow-hidden w-fluid-width-xl md:h-full relative -z-10 col-start-1 md:col-start-2 col-end-4 row-start-1">
+                <Image 
+                src={collectionsHero} 
+                alt="" 
+                format="webp" 
+                quality={'max'} 
+                width={collectionsHero.width} 
+                loading={"eager"} fetchpriority={"high"}
+                class=" w-full h-full mobile:w-3/4  ml-auto aspect-auto object-cover origin-top contrast-110 brightness-90"
+                />
+            </div>
+            <div aria-hidden="true" class="absolute inset-x-0 -bottom-4 bg-linear-360 from-10% from-base to-50% to-transparent h-44 pointer-events-none"></div>
+        </header>
+
+    </section>
+    <section class="page-padded-section-x">
+        <CollectionsHeaderActions />
+        <CollectionsGallery />
+    </section>
+
+</AppLayout>

@@ -1,0 +1,29 @@
+---
+import ArrowDown from "./svgs/ArrowDown.astro";
+import MagnifyingGlass from "./svgs/MagnifyingGlass.astro";
+---
+
+<header class="flex flex-col mobile:flex-row mobile:items-center justify-between gap-y-2 gap-x-4 py-1 relative">
+    <div aria-hidden="true" class="absolute inset-x-0 -bottom-4 bg-linear-360 from-10% from-base to-50% to-transparent h-34 -z-10 pointer-events-none"></div>
+    <fieldset class="outline outline-muted/45 w-fluid-width-sm rounded-sm bg-muted-subtle/15 relative">
+        <label for="search-collections" class="text-muted-strong inline-grid place-items-center w-4 aspect-square absolute right-2 top-1/2 -translate-y-1/2 z-10">
+            <span class="sr-only">Search</span>
+            <MagnifyingGlass />
+        </label>
+        <input type="search" name="searchCollections" id="search-collections" placeholder="Search collections, NFTs, or creators..." class="text-small w-full h-full px-3 pr-8 py-1.5">
+    </fieldset>
+    <div class="flex flex-wrap xs:flex-nowrap text-nowrap gap-2">
+        <button class="grow basis-0 text-center outline outline-muted/45 rounded-sm px-6 py-0.75 text-small">
+            <span>Filters</span>
+        </button>
+        <button class="grow basis-0 text-center  outline outline-muted/45 rounded-sm px-6 py-0.75 text-small flex justify-center items-baseline gap-x-[.5ch]">
+            <span>
+                <span>Sort by:</span>
+                <span>Filters</span>
+            </span>
+            <span class="inline-grid place-items-center w-2.5 aspect-square">
+                <ArrowDown />
+            </span>
+        </button>
+    </div>
+</header>

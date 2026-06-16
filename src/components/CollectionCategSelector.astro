@@ -1,0 +1,22 @@
+---
+const categories = [
+    "All Collections",
+    "Art",
+    "PFPs",
+    "Gaming",
+    "Photography",
+    "Collectibles",
+    "Music",
+    "Utility"
+]
+---
+
+<ul class="flex flex-nowrap text-nowrap py-2">
+    {categories.map((category) => (
+        <li>
+            <button class="px-6 text-small">
+                {category}
+            </button>
+        </li>
+    ))}
+</ul>
