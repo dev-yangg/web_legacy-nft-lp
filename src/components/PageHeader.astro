@@ -1,13 +1,38 @@
 ---
-const { currentPage, headline, subheadline, description, className } = Astro.props
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  currentPage: string;
+  headline: string;
+  subheadline: string;
+  description: string;
+  image: ImageMetadata;
+  className?: string;
+}
+
+const { currentPage, headline, subheadline, description, image, className } = Astro.props;
 ---
 
-
-<article class={`z-50 py-4 w-fluid-width-md ${className ?? " "}`}>
-    <small class="text-accent uppercase">{currentPage}</small>
-    <hgroup class="flex flex-col leading-none font-playfair">
-        <h3 class="sm:text-subheadline">{headline}</h3>
-        <h3 class="text-accent sm:text-subheadline">{subheadline}</h3>
-    </hgroup>
-    <p class="mt-4 text-small text-muted-strong text-balance">{description}</p>
-</article>
+<header class="grid grid-cols-2 xl:grid-cols-3 items-center relative ">
+    <article class={`z-50 py-4 w-fluid-width-md ${className ?? " "}`}>
+        <small class="text-accent uppercase">{currentPage}</small>
+        <hgroup class="flex flex-col leading-none font-playfair">
+            <h3 class="sm:text-subheadline">{headline}</h3>
+            <h3 class="text-accent sm:text-subheadline">{subheadline}</h3>
+        </hgroup>
+        <p class="mt-4 text-small text-muted-strong text-balance">{description}</p>
+    </article>
+    <div class="md:overflow-hidden w-fluid-width-xl md:h-full relative -z-10 col-start-1 md:col-start-2 col-end-4 row-start-1">
+        <Image 
+        src={image} 
+        alt="" 
+        format="webp" 
+        quality={'max'} 
+        width={image.width} 
+        loading={"eager"} fetchpriority={"high"}
+        class=" w-full h-full mobile:w-3/4  ml-auto aspect-auto object-cover origin-top contrast-110 brightness-90"
+        />
+    </div>
+    <div aria-hidden="true" class="absolute inset-x-0 -bottom-4 bg-linear-360 from-10% from-base to-50% to-transparent h-44 pointer-events-none"></div>
+</header>
