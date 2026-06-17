@@ -15,7 +15,8 @@ const { currentPage, headline, subheadline, description, image, className } = As
 ---
 
 <header class="grid grid-cols-2 xl:grid-cols-3 items-center relative ">
-    <article class={`z-50 py-4 w-fluid-width-md ${className ?? " "}`}>
+    <div class="absolute inset-0 bg-base/75 max-md:block hidden"></div>
+    <article class={`z-50 py-4 w-fluid-width-md  col-start-1 col-end-3 row-start-1 ${className ?? " "}`}>
         <small class="text-accent uppercase">{currentPage}</small>
         <hgroup class="flex flex-col leading-none font-playfair">
             <h3 class="sm:text-subheadline">{headline}</h3>
