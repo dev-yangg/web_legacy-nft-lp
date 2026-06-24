@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets"
+import MainNavlinks, { mainNavLinks } from "./MainNavlinks.astro"
+import SocialLinks from "./SocialLinks.astro"
+import ArrowRight from "./svgs/ArrowRight.astro"
+import eagleImage from "../assets/images/eagle.webp"
+---
+
+
+<div class="fixed inset-0 bg-base z-menu pt-20 flex flex-col lg:hidden" aria-hidden="true" id="main-menu">
+
+    <nav>
+        <ul class="flex flex-col page-padded-section-x">
+            <MainNavlinks />
+        </ul>
+    </nav>
+    
+    <footer class="p-4 flex flex-col gap-8 grow">
+        <div class="image-container relative outline rounded-sm grow shrink-0 overflow-clip outline-muted-strong/25 grid grid-cols-1 gap-4 justify-end pb-4 px-2 min-h-[40dvh]">
+            <div class="relative row-start-1 col-start-1 col-end-2  -z-20">
+                <Image src={eagleImage} alt="" class="w-full h-full object-cover scale-125 md:object-left" />
+            </div>
+            <div class="absolute inset-0 bg-base/65 -z-10"></div>
+            <article class="row-start-1 col-start-1 col-end-2 flex flex-col self-end gap-2 px-2 w-fluid-width-xs">
+                <strong data-text="headline" class="text-balance leading-none">Join the Legacy community</strong>
+                <p data-text="subheadline" class="text-muted-strong text-balance leading-6 md:font-light">Be part of a movement preserving culture and building digital legacies.</p>
+                <a data-type="cta" href="" class="outline-accent outline-2 rounded-xs px-6 py-1 text-accent-bright text-center mt-6 bg-base/25 backdrop-blur-sm">Connect Wallet</a>
+            </article>
+        </div>
+        <ul class="flex items-center justify-center gap-8">
+            <SocialLinks />
+        </ul>
+    </footer>
+</div>
+
+
+<style>
+    @keyframes menu-in {
+        0% {
+            opacity: 0;
+        }
+        80% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    @keyframes menu-out {
+        0% {
+            opacity: 1;
+        }
+        80% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    #main-menu {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    #main-menu[data-state="open"] {
+        animation: menu-in 0.3s ease-in-out forwards;
+        pointer-events: auto;
+    }
+
+    #main-menu[data-state="closed"] {
+        animation: menu-out 0.3s ease-in-out forwards;
+        pointer-events: none;
+    }
+</style>

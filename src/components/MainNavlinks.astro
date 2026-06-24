@@ -1,5 +1,7 @@
 ---
-const mainNavLinks = [
+import ArrowRight from "./svgs/ArrowRight.astro";
+
+export const mainNavLinks = [
   { label: "Collections", path: "/collections" },
   { label: "Creators", path: "/creators" },
   { label: "About", path: "/about" },
@@ -11,12 +13,11 @@ const isCurrentRoute = (href: string) => href === "/" ? pathname === "/" : pathn
 
 ---
 
-<nav class="hidden lg:block">
-  <ul class="flex items-center gap-12">
-    {mainNavLinks.map(({ label, path }) => (
-        <li>
-            <a href={path} class={`${isCurrentRoute(path) ? "text-accent-mid": " "}`}>{label}</a>
-        </li>
-    ))}
-  </ul>
-</nav>
+{mainNavLinks.map(({ label, path }, index) => (
+    <li>
+        <a href={path} class={`${isCurrentRoute(path) ? "text-accent-mid": " "} max-lg:text-subtitle font-playfair max-lg:flex max-lg:items-center max-lg:justify-between max-lg:px-3 max-lg:py-2 max-lg:relative lg:after:hidden after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-primary-text/25`} style={`--order: ${index}`}>
+          <span class="pointer-events-none">{label}</span>
+          <span class="pointer-events-none w-3 aspect-auto lg:hidden"><ArrowRight /></span>
+        </a>
+    </li>
+))}

@@ -3,6 +3,7 @@ import { Font } from "astro:assets";
 import AppFooter from "../components/AppFooter.astro";
 import AppHeader from "../components/AppHeader.astro";
 import '../styles/global.css'
+import MainMenu from "../components/MainMenu.astro";
 
 ---
 
@@ -18,7 +19,8 @@ import '../styles/global.css'
 	<body>
 		<div class="w-app-boundary mx-auto">
 			<AppHeader />
-				<main class="w-app-content-boundary mx-auto">
+			<MainMenu />
+				<main class="w-app-content-boundary mt-18 lg:mt-24 mx-auto">
 					<slot />
 				</main>
 			<AppFooter />

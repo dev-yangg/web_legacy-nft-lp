@@ -1,0 +1,45 @@
+<button id="menu-btn" class="flex flex-col items-center justify-center gap-1 lg:hidden w-7 h-6 rounded-md p-1 bg-overlay z-menu-btn">
+    <div aria-hidden="true" class="pointer-events-none h-px w-full bg-secondary-text" />
+    <div aria-hidden="true" class="pointer-events-none h-px w-full bg-secondary-text" />
+    <div aria-hidden="true" class="pointer-events-none h-px w-full bg-secondary-text" />
+</button>
+
+
+
+<script>
+
+    const setUpMenuToggle = () => {
+        const menuBtn = document.querySelector("#menu-btn") as HTMLButtonElement
+        const menu = document.querySelector("#main-menu") as HTMLDivElement
+        const mainMenuDivider = document.querySelector('[data-visuals="main-menu-divider"]')
+        
+        if(!menuBtn || !menu) return
+
+        const openMenu = () => {
+            menuBtn.setAttribute('aria-expanded', 'true')
+            menu.dataset.state = "open"
+            mainMenuDivider?.classList.remove('hide')
+            mainMenuDivider?.classList.add('show')
+            document.documentElement.style.overflow="hidden";
+        }
+        
+        const closeMenu = () => {
+            menuBtn.setAttribute('aria-expanded', 'false')
+            menu.dataset.state = "closed"
+            mainMenuDivider?.classList.remove('show')
+            mainMenuDivider?.classList.add('hide')
+            document.documentElement.style.overflow="auto";
+        }
+
+        const isMenuOpen = () => menuBtn.getAttribute('aria-expanded') === 'true';
+
+
+
+        menuBtn.addEventListener('click', () => {
+            isMenuOpen() ? closeMenu() : openMenu();
+        });
+    }
+
+    setUpMenuToggle()
+
+</script>

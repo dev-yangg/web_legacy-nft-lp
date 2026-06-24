@@ -1,0 +1,34 @@
+---
+import Discord from "./svgs/Discord.astro"
+import Instagram from "./svgs/Instagram.astro"
+import Twitter from "./svgs/Twitter.astro"
+
+const socials = [
+    {
+        label: "discord",
+        path: "https://discord.com",
+        Icon: Discord
+    },
+    {
+        label: "twitter",
+        path: "https://x.com",
+        Icon: Twitter
+    },
+    {
+        label: "instagram",
+        path: "https://instagram.com",
+        Icon: Instagram
+    }
+]
+---
+
+
+{socials.map(({label, path, Icon}) => (
+    <li class="inline-block">
+        <a href={path} target="_blank" class="inline-grid place-items-center w-8 aspect-square">
+            <span>
+                <Icon />
+            </span>
+        </a>
+    </li>
+))}

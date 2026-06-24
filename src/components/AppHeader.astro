@@ -1,20 +1,43 @@
 ---
 import AppAnchor from "./AppAnchor.astro";
+import MenuBtn from "./MenuBtn.astro";
 import MainNavlinks from "./MainNavlinks.astro";
 ---
 
-<header class="sticky top-0 inset-x-0 flex items-center justify-between py-4 px-5 z-nav bg-base/75 backdrop-blur-md mb-4">
+<header id="app-header" class="fixed top-0 inset-x-0 flex items-center justify-between pt-4 pb-6 px-5 z-app-header bg-base/75 backdrop-blur-md">
     <AppAnchor />
 
-    <MainNavlinks />
+    <nav class="hidden lg:block">
+        <ul class="flex items-center gap-12">
+            <MainNavlinks />
+        </ul>
+    </nav>
 
     <button class="hidden lg:block rounded-md outline-2 outline-accent-deep text-accent-vivid hover:text-accent-bright px-3 py-1.5 shadow-accent levitate">
         Connect Wallet
     </button>
 
-    <button class="flex flex-col items-center justify-center gap-1 lg:hidden w-7 h-6 rounded-md p-1 bg-overlay">
-        <div class="h-px w-full bg-secondary-text" />
-        <div class="h-px w-full bg-secondary-text" />
-        <div class="h-px w-full bg-secondary-text" />
-    </button>
+    <MenuBtn />
+
+    <div data-visuals="main-menu-divider" class="hide lg:hidden absolute inset-x-0 bottom-0 h-0.5 bg-accent transition-[transform,opacity] duration-300 ease-out-expo">
+        <div class="absolute top-1/2 -translate-y-1/2 rotate-45 left-1/2 -translate-x-1/2 w-1 aspect-square bg-white outline-accent outline-3">
+
+        </div>
+    </div>
 </header>
+
+
+
+<style>
+    [data-visuals="main-menu-divider"] {
+        
+
+
+        &.hide {
+            transform: scaleX(0);
+        }
+        &.show {
+            transform: scaleX(1);
+        }
+    }
+</style>
