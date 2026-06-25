@@ -8,32 +8,55 @@ interface Props {
   subheadline: string;
   description: string;
   image: ImageMetadata;
-  className?: string;
+  mobileImage: ImageMetadata;
 }
 
-const { currentPage, headline, subheadline, description, image, className } = Astro.props;
+const { currentPage, headline, subheadline, description, image, mobileImage} = Astro.props;
 ---
 
-<header class="grid grid-cols-2 xl:grid-cols-3 items-center relative ">
-    <div class="absolute inset-0 bg-base/75 max-md:block hidden"></div>
-    <article class={`z-50 py-4 w-fluid-width-md  col-start-1 col-end-3 row-start-1 ${className ?? " "}`}>
-        <small class="text-accent uppercase">{currentPage}</small>
-        <hgroup class="flex flex-col leading-none font-playfair">
+<header class="grid grid-cols-1 isolate relative md:min-h-120">
+    <article class="col-start-1 col-end-2 row-start-1 z-10 flex flex-col gap-4 page-padded-section w-fluid-width-md justify-center">
+        <p class="text-accent-vivid uppercase">Our {currentPage}</p>
+        <hgroup class="leading-none font-playfair">
             <h3 class="sm:text-subheadline">{headline}</h3>
-            <h3 class="text-accent sm:text-subheadline">{subheadline}</h3>
+            <h3 class="sm:text-subheadline text-accent-vivid">{subheadline}</h3>
         </hgroup>
-        <p class="mt-4 text-small text-muted-strong text-balance">{description}</p>
+        <p class="text-muted-strong text-balance w-fluid-width-sm">{description}</p>
     </article>
-    <div class="md:overflow-hidden w-fluid-width-xl md:h-full relative -z-10 col-start-1 md:col-start-2 col-end-4 row-start-1">
-        <Image 
-        src={image} 
-        alt="" 
-        format="webp" 
-        quality={'max'} 
-        width={image.width} 
-        loading={"eager"} fetchpriority={"high"}
-        class=" w-full h-full mobile:w-3/4  ml-auto aspect-auto object-cover origin-top contrast-110 brightness-90"
+    <div class="col-start-1 col-end-2 row-start-1 relative overflow-clip">
+
+        <Image src={mobileImage}
+            alt="" 
+            format="webp" 
+            quality={'max'} 
+            width={mobileImage.width} 
+            loading={"eager"} fetchpriority={"high"}
+            class="w-full max-h-85 object-cover object-top contrast-100 brightness-40 sm:hidden"
+        />
+
+        <Image src={image}
+            alt="" 
+            format="webp" 
+            quality={'max'} 
+            width={image.width} 
+            loading={"eager"} fetchpriority={"high"}
+            class="w-full h-full object-cover object-top contrast-100 brightness-70 hidden absolute inset-0 sm:block"
         />
     </div>
-    <div aria-hidden="true" class="absolute inset-x-0 -bottom-4 bg-linear-360 from-10% from-base to-50% to-transparent h-44 pointer-events-none"></div>
+
+    <!-- Vignette Effect -->
+    <div class="absolute inset-0">
+        <!-- LEFT FADE -->
+        <div class="absolute w-12 md:w-1/2 inset-y-0 left-0 bg-linear-90 from-0% from-base"></div>
+        <!-- RIGHT FADE -->
+        <div class="absolute w-12 inset-y-0 right-0 -bg-linear-90 from-0% from-base"></div>
+        <!-- BOTTOM FADE -->
+        <div class="absolute inset-x-0 bottom-0 h-24 bg-linear-360 from-0% from-base via-50% via-base/50 to-90% to-transparent"></div>
+        <!-- TOP FADE -->
+        <div class="absolute inset-x-0 top-0 h-24 bg-linear-180 from-0% from-base via-30% via-base/15 to-40% to-transparent"></div>
+    </div>
+    <div class="absolute inset-0 pointer-events-none"
+     style="background: radial-gradient(ellipse at center, transparent 40%, var(--color-base) 90%);">
+    </div>
 </header>
+
