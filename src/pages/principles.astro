@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import AppLayout from "../layouts/AppLayout.astro";
+import principlesHero from "../assets/images/principles/principles-hero.webp"
+import principlesHeroMobile from "../assets/images/principles/principles-hero-mobile.webp"
+import PageHeader from "../components/PageHeader.astro";
+
+interface Principle {
+    icon?: string
+    label: string
+    description: string
+}
+
+const principles: Principle[] = [
+    {
+        icon: undefined,
+        label: "Cultural Preservation",
+        description: "We preserve digital culture and ideas for future generations, ensuring nothing of value is ever lost."
+    },
+    {
+        icon: undefined,
+        label: "Creator Sovereignty",
+        description: "Creators own their work, their narrative, and their future. We provide the tools—you hold the power."
+    },
+    {
+        icon: undefined,
+        label: "Timeless Quality",
+        description: "We champion works of enduring value, curated with care, built to outlast the noise."
+    },
+    {
+        icon: undefined,
+        label: "Transparent & Fair",
+        description: "Built on open systems and clear standards. No hidden agendas. No extractive practices."
+    },
+    {
+        icon: undefined,
+        label: "Global Accessibility",
+        description: "Culture belongs to everyone. We break down barriers and bring opportunity to creators and collectors worldwide."
+    },
+    {
+        icon: undefined,
+        label: "Legacy First",
+        description: "We think in centuries, not quarters. Every action we take is measured by the legacy it leaves behind."
+    }
+];
+---
+
+<AppLayout>
+    <PageHeader currentPage="Principles" headline="Built on Values." subheadline="Driven by Legacy." description="Our principles are the foundation of everything we build—guiding every decision, every feature, and every creator we empower." image={principlesHero} mobileImage={principlesHeroMobile}/>
+
+    <section class="page-padded-section">
+       <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 outline md:outline-0 outline-muted-strong/25 rounded-sm gap-1">
+         {principles.map(({label, description}) => (
+            <article class="px-4 py-2 md:p-8 md:outline outline-muted-strong/25 md:rounded-xl">
+                    <strong class="font-semibold lg:font-playfair flex items-center justify-between">
+                        <span class="md:font-bold">{label}</span>
+                        <span aria-hidden="true" class="block md:hidden relative w-4 aspect-square">
+                            <span class="block absolute w-full h-px rounded-full bg-primary-text left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 origin-center"></span>
+                            <span class="block absolute w-full h-px rounded-full bg-primary-text left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 origin-center rotate-90"></span>
+                        </span>
+                    </strong>
+                    <small class="inline-block text-muted-strong text-balance md:mt-3 lg:max-w-fluid-width-xs">{description}</small>
+                </article>
+            ))}
+       </section>
+    </section>
+</AppLayout>
