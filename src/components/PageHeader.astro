@@ -1,6 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
+import PageHeaderImageHandler from "./PageHeaderImageHandler.astro";
 
 interface Props {
   currentPage: string;
@@ -24,40 +24,6 @@ const { currentPage, headline, subheadline, description, image, mobileImage} = A
         <p class="text-muted-strong text-balance w-fluid-width-sm">{description}</p>
         <slot name="cta" />
     </article>
-    <div class="col-start-1 col-end-2 row-start-1 relative overflow-clip">
-
-        <Image src={mobileImage}
-            alt="" 
-            format="webp" 
-            quality={'max'} 
-            width={mobileImage.width} 
-            loading={"eager"} fetchpriority={"high"}
-            class="w-full max-h-85 object-cover object-[center_20%] contrast-100 brightness-40 lg:hidden"
-        />
-
-        <Image src={image}
-            alt="" 
-            format="webp" 
-            quality={'max'} 
-            width={image.width} 
-            loading={"eager"} fetchpriority={"high"}
-            class="w-full h-full object-cover object-top contrast-100 brightness-70 hidden absolute inset-0 lg:block"
-        />
-    </div>
-
-    <!-- Vignette Effect -->
-    <div class="absolute inset-0">
-        <!-- LEFT FADE -->
-        <div class="absolute w-12 md:w-1/2 inset-y-0 left-0 bg-linear-90 from-0% from-base"></div>
-        <!-- RIGHT FADE -->
-        <div class="absolute w-12 inset-y-0 right-0 -bg-linear-90 from-0% from-base"></div>
-        <!-- BOTTOM FADE -->
-        <div class="absolute inset-x-0 bottom-0 h-24 bg-linear-360 from-0% from-base via-50% via-base/50 to-90% to-transparent"></div>
-        <!-- TOP FADE -->
-        <div class="absolute inset-x-0 top-0 h-24 bg-linear-180 from-0% from-base via-30% via-base/15 to-40% to-transparent"></div>
-    </div>
-    <div class="absolute inset-0 pointer-events-none"
-     style="background: radial-gradient(ellipse at center, transparent 40%, var(--color-base) 90%);">
-    </div>
+    <PageHeaderImageHandler className="col-start-1 col-end-2 row-start-1" image={image} mobileImage={mobileImage} />
 </header>
 

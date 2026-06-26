@@ -1,0 +1,27 @@
+---
+interface Props {
+    fadeBreakpoint?: "md" | "lg";
+}
+
+const { fadeBreakpoint = "md" } = Astro.props;
+
+const widthClasses = {
+  md: "md:w-1/2",
+  lg: "lg:w-1/2",
+} as const;
+---
+
+<!-- Vignette Effect -->
+<div aria-hidden="true" class="absolute inset-0">
+    <!-- LEFT FADE -->
+    <div class={`absolute w-12 inset-y-0 left-0 bg-linear-90 from-0% from-base ${widthClasses[fadeBreakpoint]}`}></div>
+    <!-- RIGHT FADE -->
+    <div class="absolute w-12 inset-y-0 right-0 -bg-linear-90 from-0% from-base"></div>
+    <!-- BOTTOM FADE -->
+    <div class="absolute inset-x-0 bottom-0 h-24 bg-linear-360 from-0% from-base via-50% via-base/50 to-90% to-transparent"></div>
+    <!-- TOP FADE -->
+    <div class="absolute inset-x-0 top-0 h-24 bg-linear-180 from-0% from-base via-30% via-base/15 to-40% to-transparent"></div>
+</div>
+<div aria-hidden="true" class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse at center, transparent 40%, var(--color-base) 90%);">
+</div>
