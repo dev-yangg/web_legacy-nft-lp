@@ -1,0 +1,48 @@
+---
+import AppLayout from "../layouts/AppLayout.astro";
+import notFound from "../assets/images/notFound/not-found-hero.webp"
+import notFoundMobile from "../assets/images/notFound/not-found-hero-mobile.webp"
+import ArrowRight from "../components/svgs/ArrowRight.astro";
+import Image from "astro/components/Image.astro";
+import PageHeaderImageHandler from "../components/PageHeaderImageHandler.astro";
+import VignetteEffect from "../components/VignetteEffect.astro";
+
+---
+
+<AppLayout>
+    <header class="grid grid-cols-1 relative page-padded-section-x lg:min-h-140">
+        <article class="col-start-1 col-end-2 row-start-1 z-10 flex flex-col gap-4 text-center justify-center items-center  lg:items-start lg:text-left">
+            <hgroup class="leading-tight font-playfair">
+                <h1 class="text-accent-bright text-hero">404</h1>
+                <h3>Page Not Found</h3>
+            </hgroup>
+            <p class="text-muted-strong w-fluid-width-sm text-balance">The page you're looking for doesn't exist or has been moved to another era.</p>
+            <a href="/" class="outline outline-muted-strong text-muted-strong rounded-md self-center lg:self-start px-9 pt-1 pb-1.5">
+                <span class="pointer-events-none group-hover:translate-x-px transition-transform duration-300 ease-in-out">Return Home</span>
+                <span class="pointer-events-none inline-block w-3 lg:w-3.5 translate-y-px aspect-square group-hover:translate-x-1.25 transition-transform duration-300 ease-in-out">
+                    <ArrowRight />
+                </span>
+            </a>
+        </article>
+        <div class=`col-start-1 col-end-2 row-start-1 relative overflow-clip`>
+            <Image src={notFoundMobile}
+                alt="" 
+                format="webp" 
+                quality={'max'} 
+                width={notFoundMobile.width} 
+                loading={"eager"} fetchpriority={"high"}
+                class="w-full max-h-200 object-cover object-top contrast-100 brightness-40 lg:hidden"
+            />
+
+            <Image src={notFound}
+                alt="" 
+                format="webp" 
+                quality={'max'} 
+                width={notFound.width} 
+                loading={"eager"} fetchpriority={"high"}
+                class="w-full h-full object-cover object-top contrast-100 brightness-70 hidden absolute inset-0 lg:block"
+            />
+        </div>
+        <VignetteEffect fadeBreakpoint="lg" />
+    </header>
+</AppLayout>
