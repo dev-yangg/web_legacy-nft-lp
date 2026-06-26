@@ -119,6 +119,7 @@
 @theme inline {
   --font-playfair: var(--font-playfair-display);
 
+  --text-hero: clamp(8rem, 10vw + 1.5rem, 10rem);
   --text-headline: clamp(var(--text-4xl), 6vw + 1.5rem, var(--text-6xl));
   --text-subheadline: clamp(var(--text-3xl), 3vw + 1.25rem, var(--text-5xl));
   --text-title: clamp(var(--text-2xl), 2vw + 1rem, var(--text-4xl));
