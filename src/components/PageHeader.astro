@@ -22,6 +22,7 @@ const { currentPage, headline, subheadline, description, image, mobileImage} = A
             <h3 class="sm:text-subheadline text-accent-vivid">{subheadline}</h3>
         </hgroup>
         <p class="text-muted-strong text-balance w-fluid-width-sm">{description}</p>
+        <slot name="cta" />
     </article>
     <div class="col-start-1 col-end-2 row-start-1 relative overflow-clip">
 
