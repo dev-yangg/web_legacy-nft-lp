@@ -11,4 +11,17 @@ const getImage = (path: string): ImageMetadata => {
   return mod.default;
 };
 
-export { getImage };
+const getBreakpoint = (name: string, fallback: string): string => {
+  const value = getComputedStyle(document.documentElement)
+    .getPropertyValue(`--breakpoing-${name}`)
+    .trim();
+
+  return value || fallback;
+};
+
+const minScreenWidth = (name: string, fallback: string): MediaQueryList => {
+  const value = getBreakpoint(name, fallback);
+  return window.matchMedia(`(min-width: ${value})`);
+};
+
+export { getImage, getBreakpoint, minScreenWidth };

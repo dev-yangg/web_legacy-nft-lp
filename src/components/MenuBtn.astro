@@ -7,6 +7,7 @@
 
 
 <script>
+    import { minScreenWidth } from "../lib/utils"
 
     const setUpMenuToggle = () => {
         const menuBtn = document.querySelector("#menu-btn") as HTMLButtonElement
@@ -38,6 +39,14 @@
         menuBtn.addEventListener('click', () => {
             isMenuOpen() ? closeMenu() : openMenu();
         });
+
+
+        const desktopQuery = minScreenWidth('lg', '1024px')
+        desktopQuery.addEventListener('change', (e) => {
+            if(e.matches && isMenuOpen()) {
+                closeMenu()
+            }
+        })
     }
 
     setUpMenuToggle()
