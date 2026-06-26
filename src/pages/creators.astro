@@ -1,0 +1,18 @@
+---
+import PageHeader from "../components/PageHeader.astro";
+import AppLayout from "../layouts/AppLayout.astro";
+import creatorsHero from "../assets/images/creators/creators-hero.webp"
+import creatorsHeroMobile from "../assets/images/creators/creators-hero-mobile.webp"
+import ArrowRight from "../components/svgs/ArrowRight.astro";
+---
+
+<AppLayout>
+    <PageHeader currentPage="Creators" headline="Where Vision" subheadline="Becomes Legacy." description="Discover the artists, builders, and storytellers shaping culture and preserving history onchain." image={creatorsHero} mobileImage={creatorsHeroMobile}>
+        <a href="" slot="cta" class="bg-accent-vivid self-start px-5 py-2 rounded-sm font-semibold flex items-center justify-between gap-2 group max-lg:text-small">
+            <span class="pointer-events-none group-hover:translate-x-px transition-transform duration-300 ease-in-out">Apply as a Creator</span>
+            <span class="pointer-events-none inline-block w-3 lg:w-3.5 translate-y-px aspect-square group-hover:translate-x-1.25 transition-transform duration-300 ease-in-out">
+                <ArrowRight />
+            </span>
+        </a>
+    </PageHeader>
+</AppLayout>
