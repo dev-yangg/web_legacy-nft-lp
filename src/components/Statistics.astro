@@ -1,20 +1,28 @@
 ---
-const stats = [
-  { label: "Collections", value: "12", unit: "K+" },
-  { label: "Collectors", value: "46", unit: "K+" },
-  { label: "NFTs Minted", value: "320", unit: "K+" },
-  { label: "Volume Traded", value: "18", unit: "K ETH" },
-];
+import type { Metric } from '../types'
+
+
+interface Props {
+  stats: Metric[]
+  desktopTextAlign?: "center" | "left"
+}
+
+const { stats, desktopTextAlign = "left" } = Astro.props
+
+const desktopTextAlignment = {
+  center: "lg:text-center",
+  left: "lg:text-left"
+}
 ---
 
 <dl class="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 outlined-element-rounded gap-px lg:gap-0 backdrop-blur-md relative overflow-clip shadow-[0_2px_4px] shadow-dark bg-surface/45">
-    <div class="block absolute inset-1 lg:inset-0 bg-muted-subtle lg:bg-transparent -z-10"></div>
-  {stats.map((stat, i) => (
-    <div class={`${i+1 !== stats.length ? "after:hidden lg:after:block after:absolute after:top-1/2 after:-translate-y-1/2 after:right-0 after:bg-muted-subtle after:w-px after:h-[70%]" : ""} relative py-3 p-2  lg:py-4 bg-base lg:bg-transparent grid place-content-center`}>
-        <div class="flex flex-col text-center lg:text-left">
-            <dt class="text-subtitle">{stat.value}{stat.unit}</dt>
-            <dd class="text-small">{stat.label}</dd>
-        </div>
-    </div>
-  ))}
+  <div class="block absolute inset-1 lg:inset-0 bg-muted-subtle lg:bg-transparent -z-10"></div>
+    {stats.map((stat, i) => (
+      <div class={`${i+1 !== stats.length ? "after:hidden lg:after:block after:absolute after:top-1/2 after:-translate-y-1/2 after:right-0 after:bg-muted-subtle after:w-px after:h-[70%]" : ""} relative py-3 p-2  lg:py-4 bg-base lg:bg-transparent grid place-content-center`}>
+          <div class={`flex flex-col text-center ${desktopTextAlignment[desktopTextAlign]}`}>
+              <dt class="text-subtitle">{stat.value}</dt>
+              <dd class="text-small">{stat.label}</dd>
+          </div>
+      </div>
+    ))}
 </dl>

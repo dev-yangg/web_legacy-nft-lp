@@ -1,4 +1,5 @@
 ---
+import { marketplaceMetrics } from "../data/home";
 import HeroContent from "./HeroContent.astro";
 import HeroImage from "./HeroImage.astro";
 import Logo from "./Logo.astro";
@@ -49,6 +50,6 @@ import Statistics from "./Statistics.astro";
         </div>
     </div>
     <div>
-        <Statistics />
+        <Statistics stats={ marketplaceMetrics } />
     </div>
 </section>
