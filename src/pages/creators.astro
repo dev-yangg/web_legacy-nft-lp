@@ -7,22 +7,33 @@ import ArrowRight from "../components/svgs/ArrowRight.astro";
 import Statistics from "../components/Statistics.astro";
 import { creators, creatorsMetrics } from "../data/creators";
 import CreatorsCard from "../components/CreatorsCard.astro";
+import ExternalLink from "../components/svgs/ExternalLink.astro";
 ---
 
 <AppLayout>
     <PageHeader currentPage="Creators" headline="Where Vision" subheadline="Becomes Legacy." description="Discover the artists, builders, and storytellers shaping culture and preserving history onchain." image={creatorsHero} mobileImage={creatorsHeroMobile}>
-        <a href="" slot="cta" class="bg-accent-vivid self-start px-5 py-2 rounded-sm font-semibold flex items-center justify-between gap-2 group max-lg:text-small">
-            <span class="pointer-events-none group-hover:translate-x-px transition-transform duration-300 ease-in-out">Apply as a Creator</span>
-            <span class="pointer-events-none inline-block w-3 lg:w-3.5 translate-y-px aspect-square group-hover:translate-x-1.25 transition-transform duration-300 ease-in-out">
-                <ArrowRight />
-            </span>
-        </a>
+        <div slot="cta" class="flex flex-wrap flex-row gap-4 text-center">
+            <a href="/" class="bg-accent-vivid px-5 py-2 rounded-md font-semibold inline-flex items-center justify-center gap-2 group max-lg:text-small max-sm:grow">
+                <span class="pointer-events-none group-hover:translate-x-px transition-transform duration-300 ease-in-out">Apply as a Creator</span>
+                    <span class="pointer-events-none inline-block w-3 lg:w-3.5 translate-y-px aspect-square group-hover:translate-x-1.25 transition-transform duration-300 ease-in-out">
+                        <ArrowRight />
+                </span>
+            </a>
+            <a href="http://discord.com" target="_blank" rel="noopener noreferrer" class="outline-2 -outline-offset-2 outline-muted-strong/35 pl-7 pr-5 py-2 rounded-md font-semibold max-lg:text-small max-sm:grow">
+                <span class="inline-flex items-center gap-3 pointer-events-none">
+                    <span>Join Discord</span>
+                    <span class="text-muted-strong inline-block w-3.5 aspect-square translate-y-px">
+                        <ExternalLink />
+                    </span>
+                </span>
+            </a>
+        </div>
     </PageHeader>
     <div class="page-padded-section-x">
         <Statistics stats={creatorsMetrics} desktopTextAlign="center" />
     </div>
     <section class="page-padded-section">
-        <section class="grid mobile:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-6">
+        <section class="grid mobile:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-6">
                 {creators.map((creator) => (
                     <CreatorsCard 
                         image={creator.image} 
