@@ -49,9 +49,9 @@ const principles: Principle[] = [
     <PageHeader currentPage="Principles" headline="Built on Values." subheadline="Driven by Legacy." description="Our principles are the foundation of everything we build—guiding every decision, every feature, and every creator we empower." image={principlesHero} mobileImage={principlesHeroMobile}/>
 
     <section class="page-padded-section">
-       <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 outline md:outline-0 outline-muted-strong/25 rounded-sm gap-1 py-2 md:py-0">
+       <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 outline md:outline-0 outline-muted-strong/25 rounded-sm gap-1 py-1 md:py-0">
         {principles.map(({label, description}, i) => (
-            <article data-type="accordion" class="px-4 py-2 md:p-8 md:outline outline-muted-strong/25 md:rounded-xl">
+            <article data-type="accordion" class={`px-4 py-2 md:p-8 md:outline outline-muted-strong/25 md:rounded-xl ${i !== principles.length - 1 && 'border-b border-muted-strong/25'}`}>
                 <input type="checkbox" id={`principle-${i}`} class="peer hidden" />
                 <label
                     for={`principle-${i}`}
@@ -67,7 +67,7 @@ const principles: Principle[] = [
                     </span>
                 </label>
                 <small class="max-md:grid max-md:grid-rows-[0fr] peer-checked:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-in-out">
-                    <span class="max-md:overflow-hidden inline-block text-muted-strong text-balance md:mt-3 lg:max-w-fluid-width-xs">
+                    <span class="max-md:overflow-hidden inline-block text-muted-strong text-balance mt-1 md:mt-3 lg:max-w-fluid-width-xs">
                         {description}
                     </span>
                 </small>
