@@ -4,6 +4,9 @@ import AppLayout from "../layouts/AppLayout.astro";
 import creatorsHero from "../assets/images/creators/creators-hero.webp"
 import creatorsHeroMobile from "../assets/images/creators/creators-hero-mobile.webp"
 import ArrowRight from "../components/svgs/ArrowRight.astro";
+import Statistics from "../components/Statistics.astro";
+import { creators, creatorsMetrics } from "../data/creators";
+import CreatorsCard from "../components/CreatorsCard.astro";
 ---
 
 <AppLayout>
@@ -15,4 +18,24 @@ import ArrowRight from "../components/svgs/ArrowRight.astro";
             </span>
         </a>
     </PageHeader>
+    <div class="page-padded-section-x">
+        <Statistics stats={creatorsMetrics} desktopTextAlign="center" />
+    </div>
+    <section class="page-padded-section">
+        <section class="grid mobile:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-6">
+                {creators.map((creator) => (
+                    <CreatorsCard 
+                        image={creator.image} 
+                        alt={creator.alt} 
+                        name={creator.name} 
+                        role={creator.role} 
+                        bio={creator.bio} 
+                        collectionCount={creator.collectionCount} 
+                        floorPrice={creator.floorPrice} 
+                        currency={creator.currency} 
+                    />
+                ))}
+            </div>
+        </section>
+    </section>
 </AppLayout>
