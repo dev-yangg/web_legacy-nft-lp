@@ -34,12 +34,17 @@ module.exports = {
   scopes: [
     { name: "pages" },
     { name: "components" },
+    { name: "components/svgs" },
     { name: "layouts" },
     { name: "styles" },
     { name: "public" },
     { name: "config" },
     { name: "deps" },
     { name: "root" },
+    { name: "types" },
+    { name: "assets" },
+    { name: "data" },
+    { name: "lib" },
   ],
   usePreparedCommit: false,
   messages: {
