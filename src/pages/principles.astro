@@ -49,19 +49,31 @@ const principles: Principle[] = [
     <PageHeader currentPage="Principles" headline="Built on Values." subheadline="Driven by Legacy." description="Our principles are the foundation of everything we build—guiding every decision, every feature, and every creator we empower." image={principlesHero} mobileImage={principlesHeroMobile}/>
 
     <section class="page-padded-section">
-       <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 outline md:outline-0 outline-muted-strong/25 rounded-sm gap-1">
-         {principles.map(({label, description}) => (
-            <article class="px-4 py-2 md:p-8 md:outline outline-muted-strong/25 md:rounded-xl">
-                    <strong class="font-semibold lg:font-playfair flex items-center justify-between">
-                        <span class="md:font-bold">{label}</span>
-                        <span aria-hidden="true" class="block md:hidden relative w-4 aspect-square">
-                            <span class="block absolute w-full h-px rounded-full bg-primary-text left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 origin-center"></span>
-                            <span class="block absolute w-full h-px rounded-full bg-primary-text left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 origin-center rotate-90"></span>
-                        </span>
-                    </strong>
-                    <small class="inline-block text-muted-strong text-balance md:mt-3 lg:max-w-fluid-width-xs">{description}</small>
-                </article>
-            ))}
+       <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 outline md:outline-0 outline-muted-strong/25 rounded-sm gap-1 py-2 md:py-0">
+        {principles.map(({label, description}, i) => (
+            <article data-type="accordion" class="px-4 py-2 md:p-8 md:outline outline-muted-strong/25 md:rounded-xl">
+                <input type="checkbox" id={`principle-${i}`} class="peer hidden" />
+                <label
+                    for={`principle-${i}`}
+                    class="font-semibold lg:font-playfair flex items-center justify-between cursor-pointer md:pointer-events-none md:cursor-auto"
+                >
+                    <span class="md:font-bold">{label}</span>
+                    <span data-type="accordion-state-indicator"
+                        aria-hidden="true"
+                        class="block md:hidden relative w-4 aspect-square pointer-events-none transition-transform duration-300 ease-in-out"
+                    >
+                        <span class="block absolute w-full h-px rounded-full bg-primary-text left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 origin-center transition-opacity duration-150 ease-in-out"></span>
+                        <span class="block absolute w-full h-px rounded-full bg-primary-text left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 origin-center rotate-90"></span>
+                    </span>
+                </label>
+                <small class="max-md:grid max-md:grid-rows-[0fr] peer-checked:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-in-out">
+                    <span class="max-md:overflow-hidden inline-block text-muted-strong text-balance md:mt-3 lg:max-w-fluid-width-xs">
+                        {description}
+                    </span>
+                </small>
+            </article>
+        ))}
+
        </section>
     </section>
     <article class="page-padded-section md:pt-24 md:pb-12">
@@ -86,3 +98,16 @@ const principles: Principle[] = [
         <small class="block text-right italic page-padded-section max-md:pb-0 text-muted-strong uppercase leading-none"> — Legacy Manifesto</small>
     </article>
 </AppLayout>
+
+<style>
+
+    article[data-type="accordion"]:has(input[type="checkbox"]:checked) {
+        label [data-type="accordion-state-indicator"] {
+            transform: rotate(90deg);
+
+            :first-child {
+                opacity: 0;
+            }
+        }
+    }
+</style>
