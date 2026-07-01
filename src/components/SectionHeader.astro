@@ -9,6 +9,6 @@ const { headline, className } = Astro.props
 ---
 
 <header class={`flex justify-between items-center ${className ?? " "}`}>
-    <h4 class="font-semibold capitalize">{headline}</h4>
+    <h5 class="md:text-subtitle font-semibold capitalize">{headline}</h5>
     <slot />
 </header>
