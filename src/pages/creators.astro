@@ -11,7 +11,7 @@ import ExternalLink from "../components/svgs/ExternalLink.astro";
 ---
 
 <AppLayout>
-    <PageHeader currentPage="Creators" headline="Where Vision" subheadline="Becomes Legacy." description="Discover the artists, builders, and storytellers shaping culture and preserving history onchain." image={creatorsHero} mobileImage={creatorsHeroMobile}>
+    <PageHeader pretitle="Creators" headline="Where Vision" subheadline="Becomes Legacy." description="Discover the artists, builders, and storytellers shaping culture and preserving history onchain." image={creatorsHero} mobileImage={creatorsHeroMobile}>
         <div slot="cta" class="flex flex-wrap flex-row gap-4 text-center">
             <a href="/" class="bg-accent-vivid px-5 py-2 rounded-md font-semibold inline-flex items-center justify-center gap-2 group max-lg:text-small max-sm:grow">
                 <span class="pointer-events-none group-hover:translate-x-px transition-transform duration-300 ease-in-out">Apply as a Creator</span>
@@ -39,11 +39,13 @@ import ExternalLink from "../components/svgs/ExternalLink.astro";
                         image={creator.image} 
                         alt={creator.alt} 
                         name={creator.name} 
-                        role={creator.role} 
+                        role={creator.role}
+                        xHandle={creator.xHandle} 
                         bio={creator.bio} 
                         collectionCount={creator.collectionCount} 
                         floorPrice={creator.floorPrice} 
-                        currency={creator.currency} 
+                        currency={creator.currency}
+                        isVerified={creator.isVerified} 
                     />
                 ))}
             </div>
