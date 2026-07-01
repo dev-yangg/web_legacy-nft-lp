@@ -3,7 +3,7 @@ import type { ImageMetadata } from "astro";
 import PageHeaderImageHandler from "./PageHeaderImageHandler.astro";
 
 interface Props {
-  currentPage: string;
+  pretitle: string;
   headline: string;
   subheadline: string;
   description: string;
@@ -11,12 +11,12 @@ interface Props {
   mobileImage: ImageMetadata;
 }
 
-const { currentPage, headline, subheadline, description, image, mobileImage} = Astro.props;
+const { pretitle, headline, subheadline, description, image, mobileImage} = Astro.props;
 ---
 
 <header class="grid grid-cols-1 isolate relative lg:min-h-120">
     <article class="col-start-1 col-end-2 row-start-1 z-10 flex flex-col gap-4 page-padded-section w-fluid-width-md justify-center">
-        <p class="text-accent-vivid uppercase">{currentPage}</p>
+        <p class="text-accent-vivid uppercase">{pretitle}</p>
         <hgroup class="leading-none font-playfair">
             <h3 class="sm:text-subheadline">{headline}</h3>
             <h3 class="sm:text-subheadline text-accent-vivid">{subheadline}</h3>
