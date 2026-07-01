@@ -1,11 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import heroDesktop from "../assets/images/home-hero.webp";
+import heroDesktop from "../assets/images/home-hero-edited.webp";
 ---
 
 <figure class="w-full h-full pointer-events-none select-none ">
-    <div class="relative w-full h-full grid place-items-end overflow-x-clip pb-24 sm:pb-10 lg:pb-0">
-        <div class="lg:absolute lg:inset-y-0 lg:left-1/2 lg:-translate-x-1/2 w-full">
+    <div class="relative w-full h-full grid place-items-end pt-10 pb-6 lg:py-0 ">
+        <div class="lg:absolute lg:inset-y-0 lg:left-1/2 lg:-translate-x-1/2 w-full -z-10">
             <Image 
                 src={heroDesktop} 
                 alt="" 
@@ -13,14 +13,11 @@ import heroDesktop from "../assets/images/home-hero.webp";
                 quality={'max'} 
                 width={heroDesktop.width} 
                 loading={"eager"} fetchpriority={"high"}
-                class="w-full h-full object-cover object-top saturate-125 scale-160 sm:scale-125"
+                class="w-full h-full object-cover object-top scale-130 md:scale-115 "
             />
         </div>
-        <div class="hidden lg:block absolute left-1/2 -translate-x-1/2 outline-3 outline-accent w-fluid-width-xs max-h-6/7 aspect-1/1.5 xl:aspect-1/1.25 -z-10"></div>
-        <div class="absolute inset-0  -bg-linear-360 from-0% from-surface/85 to-30% to-transparent"></div>
 
-        <div class="absolute inset-0 bg-linear-270 from-60% from-transparent to-100% to-base"></div>
-        <div class="absolute inset-0 bg-linear-90 from-60% from-transparent to-100% to-base"></div>
+
 
     </div>
 </figure>
