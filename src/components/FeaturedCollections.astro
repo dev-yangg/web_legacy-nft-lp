@@ -1,0 +1,93 @@
+---
+import theAncientsImage from "../assets/images/collections/the-ancients/the-ancients-cover.webp"
+import eternalKingsImage from "../assets/images/collections/eternal-kings/eternal-kings-cover.webp"
+import mythicRealmsImage from "../assets/images/collections/mythic-realms/mythic-realms-cover.webp"
+import futureRelicsImage from "../assets/images/collections/future-relics/future-relics-cover.webp"
+import timelessIconsImage from "../assets/images/collections/timeless-icons/timeless-icons-cover.webp"
+import { Image } from "astro:assets"
+import SectionHeader from "./SectionHeader.astro"
+
+
+const collections = [
+  { title: "The Ancients",    imagePath: theAncientsImage, value: "1.20 ETH" },
+  { title: "Eternal Kings",   imagePath: eternalKingsImage, value: "0.85 ETH" },
+  { title: "Mythic Realms",   imagePath: mythicRealmsImage, value: "0.65 ETH" },
+  { title: "Future Relics",   imagePath: futureRelicsImage, value: "1.10 ETH" },
+  { title: "Timeless Icons",  imagePath: timelessIconsImage, value: "0.75 ETH" },
+]
+---
+
+
+<section class="flex flex-col lg:p-4 overflow-hidden gap-4 relative isolate">
+    <SectionHeader headline="featured collections" className="px-4 pt-6 pb-2 lg:py-2 z-50 bg-base">
+        <a href="/collections" aria-label="View all collections" class="text-muted text-small">View all</a>
+    </SectionHeader>
+    <ul data-type="horizontal-gallery" class="flex overflow-x-auto  items-stretch gap-6 p-1 lg:grid lg:grid-cols-5 relative m-4 lg:m-0">
+        {collections.map((collection) => (
+            <li class="">
+                <figure class="grid outlined-element-rounded min-w-60  lg:min-w-0 min-h-80 relative overflow-clip group">
+                    <Image src={collection.imagePath} alt={collection.title} loading={"lazy"} quality="high" class="object-cover object-center w-full h-full brightness-55 group-hover:brightness-100 scale-110 group-hover:scale-100 transition-[transform_filter] duration-300 ease-in-out will-change-transform"/>
+                    <figcaption class="text-small px-3 py-1.5 absolute inset-x-0 bottom-0 h-fit">
+                        <p class="font-semibold">{collection.title}</p>
+                        <p class="text-muted-strong">{collection.value}</p>
+                    </figcaption>
+                </figure>
+            </li>
+        ))}
+    </ul>
+
+    <!-- Fader -->
+    <div data-type="gallery-fader-right" class="absolute inset-y-0 right-0 w-12 -bg-linear-90 from-10% from-base to-100% to-transparent z-10 lg:hidden opacity-0"></div>
+    <div data-type="gallery-fader-left" class="absolute inset-y-0 left-0 w-12 bg-linear-90 from-10% from-base to-100% to-transparent z-10 lg:hidden opacity-0"></div>
+</section>
+
+
+
+<style>
+  [data-type="horizontal-gallery"] {
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+  }
+  [data-type="horizontal-gallery"]::-webkit-scrollbar {
+    display: none; 
+  }
+</style>
+
+<script>
+  function initGalleryFader(section: HTMLElement) {
+    const gallery = section.querySelector('[data-type="horizontal-gallery"]') as HTMLElement | null;
+    const faderRight = section.querySelector('[data-type="gallery-fader-right"]') as HTMLElement | null;
+    const faderLeft = section.querySelector('[data-type="gallery-fader-left"]') as HTMLElement | null;
+    if (!gallery || !faderRight || !faderLeft) return;
+
+    const FADE_DISTANCE = 40; // px range over which opacity ramps 0 -> 1
+
+    const clamp01 = (n: number) => Math.min(1, Math.max(0, n));
+
+    const updateFader = () => {
+      const { scrollLeft, scrollWidth, clientWidth } = gallery;
+      const maxScroll = scrollWidth - clientWidth;
+      const isScrollable = maxScroll > 1; // sub-pixel guard
+
+      if (!isScrollable) {
+        faderLeft.style.opacity = '0';
+        faderRight.style.opacity = '0';
+        return;
+      }
+
+      const distanceFromStart = scrollLeft;
+      const distanceFromEnd = maxScroll - scrollLeft;
+
+      faderLeft.style.opacity = String(clamp01(distanceFromStart / FADE_DISTANCE));
+      faderRight.style.opacity = String(clamp01(distanceFromEnd / FADE_DISTANCE));
+    };
+
+    gallery.addEventListener('scroll', updateFader, { passive: true });
+    window.addEventListener('resize', updateFader);
+
+    updateFader();
+  }
+
+  document.querySelectorAll<HTMLElement>('section:has([data-type="horizontal-gallery"])')
+    .forEach(initGalleryFader);
+</script>

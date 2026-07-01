@@ -1,0 +1,38 @@
+---
+import Logo from "./Logo.astro";
+---
+
+<div 
+    role="region" 
+    aria-label="Legacy #001 - The Origin auction details"
+    class="absolute bottom-3 right-5 lg:right-4 backdrop-blur-sm outline-2 outline-muted-strong/25 rounded-md text-small lg:w-fluid-width-xxs z-50"
+    >
+    <header class="flex">
+        <div class="bg-base/5">
+            <span class="block w-6 md:w-8 text-accent aspect-square m-2 md:m-4" aria-hidden="true">
+                <Logo />
+            </span>
+        </div>
+    
+        <section class="grow flex flex-col gap-2 md:gap-4 py-2 md:py-4 px-3 bg-base/25">
+            <hgroup class="leading-6">
+                <p class="text-muted">LEGACY #001</p>
+                <p>The Origin</p>
+            </hgroup>
+            <p>1.25 ETH</p>
+        </section>
+    </header>
+    
+    <div role="timer" aria-label="Auction ends in 2 days 14 hours 32 minutes" class="text-small flex lg:justify-between px-4 py-3 items-center border-t-2 border-muted-subtle/50 bg-base/25 gap-x-4 lg:gap-0">
+        <span class="flex gap-x-2 text-muted-strong">
+            <span aria-hidden="true" class="inline-block w-4 aspect-square">
+                <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                <svg class="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12ZM11.8284 6.75736C12.3807 6.75736 12.8284 7.20507 12.8284 7.75736V12.7245L16.3553 14.0653C16.8716 14.2615 17.131 14.8391 16.9347 15.3553C16.7385 15.8716 16.1609 16.131 15.6447 15.9347L11.4731 14.349C11.085 14.2014 10.8284 13.8294 10.8284 13.4142V7.75736C10.8284 7.20507 11.2761 6.75736 11.8284 6.75736Z" fill="currentColor"/>
+                </svg>
+            </span>
+            <span class="hidden lg:inline">Auction ends in</span>
+        </span>
+        <time>2d 14h 32m</time>
+    </div>
+</div>
